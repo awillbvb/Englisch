@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prepositions of Time – A1</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1565c0;
+    --sky: #29b6f6;
+    --amber: #ffb300;
+    --green: #43a047;
+    --red: #e53935;
+    --purple: #7b1fa2;
+    --bg: #e8f4fd;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --on: #1565c0;
+    --in: #2e7d32;
+    --at: #b71c1c;
+    --dash: #5d4037;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #1565c0 0%, #29b6f6 100%);
+    color: white;
+    text-align: center;
+    padding: 48px 24px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 0 rgba(0,0,0,.2);
+    position: relative;
+  }
+  header p { font-size: 1.05rem; margin-top: 8px; opacity: .85; position: relative; }
+
+  /* Rule display */
+  .rule-box {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    position: relative;
+  }
+  .rule-card {
+    background: rgba(255,255,255,.15);
+    border: 2px solid rgba(255,255,255,.35);
+    border-radius: 16px;
+    padding: 14px 22px;
+    min-width: 140px;
+    backdrop-filter: blur(6px);
+  }
+  .rule-card .prep-label {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  .rule-card .prep-label.at-lbl { color: #ffcdd2; }
+  .rule-card .prep-label.on-lbl { color: #c8e6c9; }
+  .rule-card .prep-label.in-lbl { color: #b3e5fc; }
+  .rule-card .prep-label.dash-lbl { color: #ffe082; }
+  .rule-card ul { list-style: none; margin-top: 6px; font-size: .82rem; opacity: .9; }
+  .rule-card ul li { padding: 1px 0; }
+
+  /* ── SCORE BAR ── */
+  .score-bar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: white;
+    padding: 12px 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+  }
+  .score-item { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: .95rem; }
+  .score-dot { width: 14px; height: 14px; border-radius: 50%; }
+  .dot-c { background: var(--green); }
+  .dot-w { background: var(--red); }
+  .dot-t { background: var(--sky); }
+  #total-score { font-size: 1.4rem; color: var(--sky); }
+
+  /* ── MAIN ── */
+  main { max-width: 960px; margin: 0 auto; padding: 32px 20px 80px; }
+
+  .section {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 32px 28px;
+    margin-bottom: 32px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.07);
+    animation: fadeUp .5s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .section:nth-child(1){animation-delay:.05s}
+  .section:nth-child(2){animation-delay:.1s}
+  .section:nth-child(3){animation-delay:.15s}
+  .section:nth-child(4){animation-delay:.2s}
+
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem;
+    color: var(--blue);
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title .num {
+    background: var(--blue);
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .section-sub { color: #666; margin-bottom: 22px; font-size: .97rem; }
+
+  /* ── PILL CHOOSER (Ex 1, 2, 4) ── */
+  .pill-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: #f5f5f5;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 2;
+  }
+  .pill-row .pic { font-size: 1.4rem; }
+  .prep-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    padding: 4px 14px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: .9rem;
+    transition: all .15s;
+    background: white;
+  }
+  .prep-pill:hover { transform: scale(1.07); }
+  .prep-pill.pill-at  { border-color: #ef9a9a; color: var(--at); }
+  .prep-pill.pill-on  { border-color: #a5d6a7; color: var(--in); }
+  .prep-pill.pill-in  { border-color: #90caf9; color: var(--on); }
+  .prep-pill.pill-dash{ border-color: #bcaaa4; color: var(--dash); }
+  .prep-pill.selected-at   { background: #ffebee; border-color: var(--at); }
+  .prep-pill.selected-on   { background: #e8f5e9; border-color: var(--in); }
+  .prep-pill.selected-in   { background: #e3f2fd; border-color: var(--on); }
+  .prep-pill.selected-dash { background: #efebe9; border-color: var(--dash); }
+  .prep-pill.correct { background: #e8f5e9; border-color: var(--green); color: var(--green); }
+  .prep-pill.wrong   { background: #ffebee; border-color: var(--red); color: var(--red); animation: shake .4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)} }
+
+  .blank-drop {
+    display: inline-block;
+    border: none;
+    border-bottom: 3px solid var(--blue);
+    background: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    min-width: 70px;
+    max-width: 120px;
+    text-align: center;
+    outline: none;
+    padding: 2px 6px;
+    transition: border-color .2s;
+  }
+  .blank-drop:focus { border-color: var(--sky); }
+  .blank-drop.correct { border-color: var(--green); color: var(--green); }
+  .blank-drop.wrong   { border-color: var(--red); color: var(--red); }
+
+  /* Ex 2 – choose one option */
+  .mc-item {
+    margin-bottom: 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 14px;
+    padding: 14px 16px;
+  }
+  .mc-q { font-weight: 700; margin-bottom: 8px; font-size: .95rem; }
+  .mc-options { display: flex; flex-direction: column; gap: 6px; }
+  .mc-option {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .9rem;
+    background: #fafafa;
+    transition: all .15s;
+  }
+  .mc-option:hover { background: #f0f0f0; }
+  .mc-option.chosen { border-color: var(--sky); background: #e3f2fd; }
+  .mc-option.correct { border-color: var(--green); background: #e8f5e9; color: var(--green); }
+  .mc-option.wrong   { border-color: var(--red); background: #ffebee; color: var(--red); }
+
+  /* Ex 3 – sentence builder */
+  .sb-item {
+    margin-bottom: 14px;
+    background: #fafafa;
+    border-radius: 14px;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+  }
+  .sb-words { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .sb-word {
+    background: #e3f2fd;
+    border: 2px solid #90caf9;
+    color: var(--on);
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-weight: 700;
+    font-size: .88rem;
+    cursor: pointer;
+    transition: all .15s;
+    user-select: none;
+  }
+  .sb-word:hover { background: #bbdefb; }
+  .sb-word.used  { opacity: .35; cursor: default; }
+  .sb-answer {
+    min-height: 38px;
+    border-radius: 10px;
+    border: 2px dashed #90caf9;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: .95rem;
+    color: var(--text);
+    display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+    cursor: pointer;
+  }
+  .sb-token {
+    background: var(--sky);
+    color: white;
+    border-radius: 50px;
+    padding: 2px 12px;
+    font-size: .88rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .sb-answer.correct { border-color: var(--green); background: #e8f5e9; }
+  .sb-answer.wrong   { border-color: var(--red);   background: #ffebee; }
+  .sb-correct-text { color: var(--green); font-size: .85rem; margin-top: 4px; }
+
+  /* Ex 4 – time filler */
+  .e4-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media(max-width:580px){ .e4-grid { grid-template-columns: 1fr; } }
+
+  .e4-cell {
+    background: #fafafa;
+    border: 2px solid #e0e0e0;
+    border-radius: 14px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .e4-cell svg { flex-shrink: 0; width: 60px; height: 55px; }
+  .e4-text { font-weight: 600; font-size: .92rem; flex: 1; }
+
+  /* CHECK BTN */
+  .check-btn {
+    display: block;
+    margin: 20px auto 0;
+    background: linear-gradient(135deg, #1565c0, #29b6f6);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 40px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(21,101,192,.35);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .check-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(21,101,192,.4); }
+  .check-btn:active { transform: translateY(0); }
+
+  /* TOAST */
+  .toast {
+    position: fixed; bottom: 30px; left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--text); color: white;
+    padding: 14px 30px; border-radius: 50px;
+    font-weight: 700; font-size: 1rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+    z-index: 999;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast.success { background: var(--green); }
+  .toast.error   { background: var(--red); }
+
+  /* CONFETTI */
+  .confetti-piece {
+    position: fixed; width: 10px; height: 10px; border-radius: 2px;
+    pointer-events: none; z-index: 9999;
+    animation: confettiFall 1.2s ease-in forwards;
+  }
+  @keyframes confettiFall {
+    0%   { transform:translateY(-20px) rotate(0deg); opacity:1; }
+    100% { transform:translateY(100vh) rotate(720deg); opacity:0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⏰ Prepositions of Time</h1>
+  <p>Learn when things happen!</p>
+
+  <div class="rule-box">
+    <div class="rule-card">
+      <div class="prep-label at-lbl">AT</div>
+      <ul>
+        <li>⏰ At 9 o'clock</li>
+        <li>🌙 At night</li>
+        <li>🎄 At Christmas</li>
+      </ul>
+    </div>
+    <div class="rule-card">
+      <div class="prep-label on-lbl">ON</div>
+      <ul>
+        <li>📅 On Monday</li>
+        <li>🗓️ On the weekend</li>
+        <li>📆 On 25th June</li>
+      </ul>
+    </div>
+    <div class="rule-card">
+      <div class="prep-label in-lbl">IN</div>
+      <ul>
+        <li>🌅 In the morning</li>
+        <li>📅 In July / 2015</li>
+        <li>❄️ In winter</li>
+      </ul>
+    </div>
+    <div class="rule-card">
+      <div class="prep-label dash-lbl">—</div>
+      <ul>
+        <li>✖ yesterday</li>
+        <li>✖ today / tomorrow</li>
+        <li>✖ last / next week</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="score-bar">
+  <div class="score-item"><div class="score-dot dot-c"></div> Correct: <strong id="sc-correct">0</strong></div>
+  <div class="score-item"><div class="score-dot dot-w"></div> Wrong: <strong id="sc-wrong">0</strong></div>
+  <div class="score-item"><div class="score-dot dot-t"></div> Total: <strong id="total-score">0 / 0</strong></div>
+</div>
+
+<main>
+
+<!-- ═══════════════════════════════════════════
+     EXERCISE 1 – Click the correct preposition
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-title"><div class="num">1</div> Write the prepositions</div>
+  <p class="section-sub">Click the correct preposition (at / on / in / –) for each sentence. 🎯</p>
+  <div id="ex1-container"></div>
+  <button class="check-btn" onclick="checkEx1()">✅ Check Answers</button>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     EXERCISE 2 – Multiple choice
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-title"><div class="num">2</div> Select the correct answer</div>
+  <p class="section-sub">Choose the sentence with the correct preposition. 🔍</p>
+  <div id="ex2-container"></div>
+  <button class="check-btn" onclick="checkEx2()">✅ Check Answers</button>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     EXERCISE 3 – Sentence builder
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-title"><div class="num">3</div> Write sentences</div>
+  <p class="section-sub">Click the words in the right order to build a correct sentence. 🧩</p>
+  <div id="ex3-container"></div>
+  <button class="check-btn" onclick="checkEx3()">✅ Check Answers</button>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     EXERCISE 4 – Complete with preposition + time
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-title"><div class="num">4</div> Complete the sentences</div>
+  <p class="section-sub">Type the correct preposition AND the time expression. ✏️</p>
+  <div class="e4-grid" id="ex4-container"></div>
+  <button class="check-btn" onclick="checkEx4()">✅ Check Answers</button>
+</section>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════
+   SCORE
+═══════════════════════════════════════ */
+let correct = 0, wrong = 0;
+function addScore(ok) {
+  if (ok) correct++; else wrong++;
+  document.getElementById('sc-correct').textContent = correct;
+  document.getElementById('sc-wrong').textContent = wrong;
+  document.getElementById('total-score').textContent = `${correct} / ${correct+wrong}`;
+}
+function showToast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  setTimeout(() => t.className = 'toast', 2400);
+}
+function confetti() {
+  const colors = ['#1565c0','#29b6f6','#ffb300','#43a047','#7b1fa2','#e91e8c'];
+  for (let i=0;i<42;i++){
+    const el=document.createElement('div');
+    el.className='confetti-piece';
+    el.style.cssText=`left:${Math.random()*100}vw;top:-10px;background:${colors[Math.floor(Math.random()*colors.length)]};animation-delay:${Math.random()*.7}s;animation-duration:${.9+Math.random()*.8}s;transform:rotate(${Math.random()*360}deg)`;
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),1700);
+  }
+}
+
+/* ═══════════════════════════════════════
+   SVGs for exercise 4
+═══════════════════════════════════════ */
+function svgClock(h,m) {
+  const hAngle = ((h%12)/12)*360 + (m/60)*30;
+  const mAngle = (m/60)*360;
+  const toXY = (angle, r) => {
+    const rad = (angle-90)*Math.PI/180;
+    return [30+r*Math.cos(rad), 30+r*Math.sin(rad)];
+  };
+  const [hx,hy] = toXY(hAngle,14);
+  const [mx,my] = toXY(mAngle,20);
+  return `<svg viewBox="0 0 60 55" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="30" r="26" fill="white" stroke="#90a4ae" stroke-width="2.5"/>
+    <line x1="30" y1="30" x2="${hx}" y2="${hy}" stroke="#1565c0" stroke-width="3" stroke-linecap="round"/>
+    <line x1="30" y1="30" x2="${mx}" y2="${my}" stroke="#e91e8c" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="30" cy="30" r="3" fill="#333"/>
+    <text x="30" y="12" text-anchor="middle" font-size="6" fill="#999">12</text>
+    <text x="30" y="52" text-anchor="middle" font-size="6" fill="#999">6</text>
+    <text x="8" y="33" text-anchor="middle" font-size="6" fill="#999">9</text>
+    <text x="52" y="33" text-anchor="middle" font-size="6" fill="#999">3</text>
+  </svg>`;
+}
+function svgSun()   { return `<svg viewBox="0 0 60 55" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="28" r="16" fill="#ffd54f" stroke="#f9a825" stroke-width="2"/>${[0,45,90,135,180,225,270,315].map(a=>{const r=a*Math.PI/180;return `<line x1="${30+18*Math.cos(r)}" y1="${28+18*Math.sin(r)}" x2="${30+24*Math.cos(r)}" y2="${28+24*Math.sin(r)}" stroke="#f9a825" stroke-width="2"/>`;}).join('')}</svg>`; }
+function svgMoon()  { return `<svg viewBox="0 0 60 55" xmlns="http://www.w3.org/2000/svg"><path d="M30,8 Q15,12 12,28 Q15,44 30,48 Q18,44 16,28 Q18,12 30,8 Z" fill="#90a4ae"/><circle cx="36" cy="18" r="6" fill="#ffe082"/><circle cx="44" cy="28" r="4" fill="#ffe082" opacity=".6"/></svg>`; }
+function svgCalendar(day, month) {
+  return `<svg viewBox="0 0 60 55" xmlns="http://www.w3.org/2000/svg">
+    <rect x="5" y="10" width="50" height="42" rx="5" fill="white" stroke="#90a4ae" stroke-width="2"/>
+    <rect x="5" y="10" width="50" height="14" rx="5" fill="#1565c0"/>
+    <rect x="5" y="18" width="50" height="6" fill="#1565c0"/>
+    <rect x="14" y="5" width="5" height="12" rx="2" fill="#90a4ae"/>
+    <rect x="41" y="5" width="5" height="12" rx="2" fill="#90a4ae"/>
+    <text x="30" y="22" text-anchor="middle" font-size="7" fill="white" font-family="Fredoka One">${month||''}</text>
+    <text x="30" y="42" text-anchor="middle" font-size="18" fill="#1565c0" font-family="Fredoka One">${day||''}</text>
+  </svg>`;
+}
+function svgSeason(s) {
+  const icons = {
+    winter: `<text x="30" y="40" text-anchor="middle" font-size="32">❄️</text>`,
+    spring: `<text x="30" y="40" text-anchor="middle" font-size="32">🌸</text>`,
+    summer: `<text x="30" y="40" text-anchor="middle" font-size="32">☀️</text>`,
+    autumn: `<text x="30" y="40" text-anchor="middle" font-size="32">🍂</text>`,
+  };
+  return `<svg viewBox="0 0 60 55" xmlns="http://www.w3.org/2000/svg">${icons[s]||''}</svg>`;
+}
+function svgPerson(emoji) {
+  return `<svg viewBox="0 0 60 55" xmlns="http://www.w3.org/2000/svg"><text x="30" y="40" text-anchor="middle" font-size="36">${emoji}</text></svg>`;
+}
+
+/* ═══════════════════════════════════════
+   EXERCISE 1 DATA
+═══════════════════════════════════════ */
+const ex1Data = [
+  { emoji:'⏰🛌', sentence: 'I get up ___ 8 am ___ the morning.', answers: ['at','in'], blanks: 2 },
+  { emoji:'🏃', sentence: '___ the afternoon, I usually go running.', answers: ['in'], blanks: 1 },
+  { emoji:'🛍️', sentence: 'Tony and Clara go shopping ___ the weekends.', answers: ['on'], blanks: 1 },
+  { emoji:'🤧', sentence: '___ November, I always get a cold.', answers: ['in'], blanks: 1 },
+  { emoji:'🚆', sentence: 'Marcel is going to London ___ the 11th of July.', answers: ['on'], blanks: 1 },
+  { emoji:'💼', sentence: 'Aisha is working ___ tomorrow.', answers: ['-'], blanks: 1 },
+  { emoji:'💤', sentence: '___ last night, I went to sleep ___ 10 PM.', answers: ['-','at'], blanks: 2 },
+  { emoji:'🎂', sentence: "Marcel's birthday is ___ spring.", answers: ['in'], blanks: 1 },
+  { emoji:'🎬', sentence: 'Tony watched a great film ___ yesterday.', answers: ['-'], blanks: 1 },
+  { emoji:'🩺', sentence: "I have a doctor's appointment ___ this morning.", answers: ['-'], blanks: 1 },
+];
+
+const PILLS = ['at','on','in','-'];
+const pillClass = { at:'pill-at', on:'pill-on', in:'pill-in', '-':'pill-dash' };
+const selectedClass = { at:'selected-at', on:'selected-on', in:'selected-in', '-':'selected-dash' };
+
+let ex1State = {}; // rowIdx -> [chosen...]
+
+function buildEx1() {
+  const cont = document.getElementById('ex1-container');
+  ex1Data.forEach((row, ri) => {
+    ex1State[ri] = Array(row.blanks).fill(null);
+    let sentParts = row.sentence.split('___');
+    let html = `<div class="pill-row"><span class="pic">${row.emoji}</span> `;
+    for (let bi=0; bi<sentParts.length; bi++) {
+      html += `<span>${sentParts[bi]}</span>`;
+      if (bi < row.blanks) {
+        html += `<span id="e1-blank-${ri}-${bi}" style="display:inline-flex;gap:4px">`;
+        PILLS.forEach(p => {
+          html += `<button class="prep-pill ${pillClass[p]}" id="e1-pill-${ri}-${bi}-${p}" onclick="pickPill(${ri},${bi},'${p}')">${p}</button>`;
+        });
+        html += `</span>`;
+      }
+    }
+    html += `</div>`;
+    cont.innerHTML += html;
+  });
+}
+
+function pickPill(ri, bi, word) {
+  ex1State[ri][bi] = word;
+  // update visual
+  PILLS.forEach(p => {
+    const btn = document.getElementById(`e1-pill-${ri}-${bi}-${p}`);
+    if (btn) {
+      btn.className = `prep-pill ${pillClass[p]}` + (p === word ? ' ' + selectedClass[p] : '');
+    }
+  });
+}
+
+function checkEx1() {
+  let ok = 0, total = 0;
+  ex1Data.forEach((row, ri) => {
+    row.answers.forEach((ans, bi) => {
+      total++;
+      const chosen = ex1State[ri][bi];
+      PILLS.forEach(p => {
+        const btn = document.getElementById(`e1-pill-${ri}-${bi}-${p}`);
+        if (!btn) return;
+        btn.className = `prep-pill ${pillClass[p]}`;
+        if (p === ans) btn.classList.add('correct');
+        else if (p === chosen && chosen !== ans) btn.classList.add('wrong');
+      });
+      if (chosen === ans) { ok++; addScore(true); } else addScore(false);
+    });
+  });
+  if (ok===total) { showToast('🎉 Perfect!', 'success'); confetti(); }
+  else showToast(`${ok} / ${total} correct`, ok>total/2?'success':'error');
+}
+
+/* ═══════════════════════════════════════
+   EXERCISE 2 DATA
+═══════════════════════════════════════ */
+const ex2Data = [
+  {
+    q: 'At what time do you wake up?',
+    options: ['I wake up at 6:30 on the morning.','I wake up at 6:30 at the morning.','I wake up at 6:30 in the morning.'],
+    correct: 2
+  },
+  {
+    q: 'What is Marcel doing this weekend?',
+    options: ['Marcel is playing football at Saturday and working on Sunday.','Marcel is playing football in Saturday and working in Sunday.','Marcel is playing football on Saturday and working on Sunday.'],
+    correct: 2
+  },
+  {
+    q: 'Can you help me with my homework?',
+    options: ['I can help you on tomorrow!','I can help you tomorrow!','I can help you in tomorrow!'],
+    correct: 1
+  },
+  {
+    q: 'At what time do you finish work?',
+    options: ['I finish work at 5 o\'clock.','I finish work 5 o\'clock.','I finish work in 5 o\'clock.'],
+    correct: 0
+  },
+  {
+    q: 'When do you go to the gym?',
+    options: ['I go to the gym in the afternoon.','I go to the gym at the afternoon.','I go to the gym on the afternoon.'],
+    correct: 0
+  },
+  {
+    q: 'When does the lesson start?',
+    options: ['It starts at 15 minutes.','It starts in 15 minutes.','It starts on 15 minutes.'],
+    correct: 1
+  },
+  {
+    q: 'Are you going to Margate today?',
+    options: ['No, I am going on next weekend.','No, I am going next weekend.','No, I am going at next weekend.'],
+    correct: 1
+  },
+];
+let ex2Chosen = {};
+
+function buildEx2() {
+  const cont = document.getElementById('ex2-container');
+  ex2Data.forEach((item, qi) => {
+    let opts = item.options.map((o, oi) =>
+      `<div class="mc-option" id="mc-${qi}-${oi}" onclick="pickMC(${qi},${oi})">${o}</div>`
+    ).join('');
+    cont.innerHTML += `<div class="mc-item"><div class="mc-q">❓ ${item.q}</div><div class="mc-options">${opts}</div></div>`;
+  });
+}
+function pickMC(qi, oi) {
+  ex2Chosen[qi] = oi;
+  ex2Data[qi].options.forEach((_,o) => {
+    const el = document.getElementById(`mc-${qi}-${o}`);
+    el.className = 'mc-option' + (o===oi?' chosen':'');
+  });
+}
+function checkEx2() {
+  let ok=0;
+  ex2Data.forEach((item,qi) => {
+    const chosen = ex2Chosen[qi];
+    item.options.forEach((_,oi) => {
+      const el = document.getElementById(`mc-${qi}-${oi}`);
+      el.className = 'mc-option';
+      if (oi===item.correct) el.classList.add('correct');
+      else if (oi===chosen && chosen!==item.correct) el.classList.add('wrong');
+    });
+    if (chosen===item.correct) { ok++; addScore(true); } else addScore(false);
+  });
+  if(ok===ex2Data.length){showToast('🎉 All correct!','success');confetti();}
+  else showToast(`${ok} / ${ex2Data.length} correct`, ok>ex2Data.length/2?'success':'error');
+}
+
+/* ═══════════════════════════════════════
+   EXERCISE 3 – Sentence builder
+═══════════════════════════════════════ */
+const ex3Data = [
+  { words: ['I','ate','a','sandwich','at','midnight','.'], correct: 'I ate a sandwich at midnight .' },
+  { words: ['We','went','shopping','yesterday','.'], correct: 'We went shopping yesterday .' },
+  { words: ['What','are','you','doing','next','week','?'], correct: 'What are you doing next week ?' },
+  { words: ['The','film','was','made','in','1976','.'], correct: 'The film was made in 1976 .' },
+  { words: ['He','did','not','have','breakfast','this','morning','.'], correct: 'He did not have breakfast this morning .' },
+  { words: ['We','finish','school','on','the','31st','of','May','.'], correct: 'We finish school on the 31st of May .' },
+  { words: ['She','goes','home','at','6:45','.'], correct: 'She goes home at 6:45 .' },
+  { words: ['The','bus','leaves','in','20','minutes','.'], correct: 'The bus leaves in 20 minutes .' },
+];
+let ex3State = {}; // qi -> { placed: [], remaining: [] }
+
+function shuffle(arr) { return [...arr].sort(()=>Math.random()-.5); }
+
+function buildEx3() {
+  const cont = document.getElementById('ex3-container');
+  ex3Data.forEach((item, qi) => {
+    const shuffled = shuffle(item.words);
+    ex3State[qi] = { placed: [], remaining: [...shuffled] };
+    let wordBtns = shuffled.map(w =>
+      `<div class="sb-word" id="sbw-${qi}-${w.replace(/[^a-z0-9]/gi,'x')}-${shuffled.indexOf(w)}" onclick="addWord(${qi},${shuffled.indexOf(w)},'${w.replace(/'/g,"\\'")}','sbw-${qi}-${w.replace(/[^a-z0-9]/gi,'x')}-${shuffled.indexOf(w)}')">${w}</div>`
+    ).join('');
+    cont.innerHTML += `
+      <div class="sb-item" id="sbi-${qi}">
+        <div class="sb-words" id="sbwords-${qi}">${wordBtns}</div>
+        <div class="sb-answer" id="sbans-${qi}" onclick="clearAnswer(${qi})" title="Click to clear">
+          <span style="color:#aaa;font-size:.85rem">Click words above → click here to clear</span>
+        </div>
+      </div>`;
+  });
+}
+
+function addWord(qi, idx, word, btnId) {
+  const btn = document.getElementById(btnId);
+  if (btn.classList.contains('used')) return;
+  btn.classList.add('used');
+  ex3State[qi].placed.push({ idx, word });
+  const ans = document.getElementById(`sbans-${qi}`);
+  // clear placeholder
+  if (ans.querySelector('span[style]')) ans.innerHTML = '';
+  const tok = document.createElement('div');
+  tok.className = 'sb-token';
+  tok.textContent = word;
+  ans.appendChild(tok);
+}
+
+function clearAnswer(qi) {
+  ex3State[qi].placed = [];
+  document.getElementById(`sbans-${qi}`).innerHTML = '<span style="color:#aaa;font-size:.85rem">Click words above → click here to clear</span>';
+  document.querySelectorAll(`#sbwords-${qi} .sb-word`).forEach(b => b.classList.remove('used'));
+  document.getElementById(`sbi-${qi}`).querySelector('.sb-answer').classList.remove('correct','wrong');
+}
+
+function checkEx3() {
+  let ok=0;
+  ex3Data.forEach((item,qi) => {
+    const built = ex3State[qi].placed.map(p=>p.word).join(' ');
+    const ans = document.getElementById(`sbans-${qi}`);
+    if (built.trim()===item.correct.trim()) {
+      ans.classList.add('correct'); ok++; addScore(true);
+    } else {
+      ans.classList.add('wrong'); addScore(false);
+      const hint = document.createElement('div');
+      hint.className = 'sb-correct-text';
+      hint.textContent = '✓ ' + item.correct;
+      ans.closest('.sb-item').appendChild(hint);
+    }
+  });
+  if(ok===ex3Data.length){showToast('🎉 Excellent!','success');confetti();}
+  else showToast(`${ok} / ${ex3Data.length} correct`,'error');
+}
+
+/* ═══════════════════════════════════════
+   EXERCISE 4 DATA & BUILD
+═══════════════════════════════════════ */
+const ex4Data = [
+  { svg: svgClock(9,0),          label: '9 o\'clock', sentence: 'I have breakfast ___ ___.',  prep:'at', time:'9 o\'clock' },
+  { svg: svgClock(8,0),          label: '8 AM',       sentence: 'I go to work ___ ___.',      prep:'at', time:'8 am' },
+  { svg: svgSeason('spring'),    label: 'spring',     sentence: "Marcel's birthday is ___ ___.", prep:'in', time:'spring' },
+  { svg: svgCalendar('15','JUL'),label: '15th July',  sentence: 'She plays basketball ___ ___.',prep:'on', time:'the 15th of July' },
+  { svg: svgPerson('🌙'),        label: 'night',      sentence: 'We sleep ___ ___.',           prep:'at', time:'night' },
+  { svg: svgCalendar('SAT',''),  label: 'Saturday',   sentence: 'I see my friends ___ ___.',   prep:'on', time:'Saturday' },
+  { svg: svgSeason('winter'),    label: 'winter',     sentence: 'It is cold ___ ___.',         prep:'in', time:'winter' },
+  { svg: svgSun(),               label: 'morning',    sentence: '___ ___, I like to relax.',   prep:'in', time:'the morning' },
+  { svg: svgCalendar('','2017'), label: '2017',       sentence: 'I went to France ___ ___.',   prep:'in', time:'2017' },
+  { svg: svgClock(11,0),         label: '11 o\'clock',sentence: 'The lesson is ___ ___.',      prep:'at', time:'11 o\'clock' },
+  { svg: svgCalendar('SUN',''),  label: 'Sunday',     sentence: 'My football match is ___ ___.',prep:'on',time:'Sunday' },
+];
+
+function buildEx4() {
+  const cont = document.getElementById('ex4-container');
+  ex4Data.forEach((item, i) => {
+    const sentParts = item.sentence.split('___');
+    let built = sentParts[0];
+    built += `<input class="blank-drop" id="e4p-${i}" placeholder="prep" data-answer="${item.prep}" style="width:55px">`;
+    built += sentParts[1];
+    built += `<input class="blank-drop" id="e4t-${i}" placeholder="time" data-answer="${item.time}" style="width:${Math.max(70,item.time.length*9)}px">`;
+    built += (sentParts[2]||'');
+
+    const div = document.createElement('div');
+    div.className = 'e4-cell';
+    div.innerHTML = `${item.svg}<div class="e4-text">${built}</div>`;
+    cont.appendChild(div);
+  });
+}
+
+function checkEx4() {
+  let ok=0, total=0;
+  ex4Data.forEach((_,i) => {
+    ['e4p','e4t'].forEach(pfx => {
+      const inp = document.getElementById(`${pfx}-${i}`);
+      const ans = inp.dataset.answer.toLowerCase();
+      const val = inp.value.trim().toLowerCase().replace(/\./g,'');
+      inp.classList.remove('correct','wrong');
+      total++;
+      const isOk = val===ans || ans.includes(val) || val.includes(ans);
+      if (isOk) { inp.classList.add('correct'); ok++; addScore(true); }
+      else { inp.classList.add('wrong'); inp.placeholder=inp.dataset.answer; inp.value=''; addScore(false); }
+    });
+  });
+  if(ok===total){showToast('🎉 Brilliant!','success');confetti();}
+  else showToast(`${ok} / ${total} correct`,'error');
+}
+
+/* ═══════════════════════════════════════
+   INIT
+═══════════════════════════════════════ */
+buildEx1();
+buildEx2();
+buildEx3();
+buildEx4();
+</script>
+</body>
+</html>
