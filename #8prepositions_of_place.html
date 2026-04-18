@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prepositions of Place – A1</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #e91e8c;
+    --teal: #00bcd4;
+    --yellow: #ffd600;
+    --green: #4caf50;
+    --orange: #ff6d00;
+    --bg: #f0f9ff;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --correct: #43a047;
+    --wrong: #e53935;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, var(--pink) 0%, #9c27b0 100%);
+    color: white;
+    text-align: center;
+    padding: 48px 24px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 0 rgba(0,0,0,.2);
+    position: relative;
+  }
+  header p {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    opacity: .85;
+    position: relative;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--text);
+    border-radius: 50px;
+    padding: 4px 18px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    margin-top: 12px;
+    box-shadow: 0 4px 0 rgba(0,0,0,.15);
+  }
+
+  /* ── SCORE BAR ── */
+  .score-bar {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    background: white;
+    padding: 12px 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+  }
+  .score-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 1rem;
+  }
+  .score-dot { width: 16px; height: 16px; border-radius: 50%; }
+  .dot-correct { background: var(--correct); }
+  .dot-wrong { background: var(--wrong); }
+  .dot-total { background: var(--teal); }
+  #total-score { font-size: 1.5rem; color: var(--teal); }
+
+  /* ── MAIN LAYOUT ── */
+  main { max-width: 960px; margin: 0 auto; padding: 32px 20px 80px; }
+
+  /* ── SECTION ── */
+  .section {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 32px 28px;
+    margin-bottom: 32px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.07);
+    animation: fadeUp .5s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .section:nth-child(1) { animation-delay: .05s; }
+  .section:nth-child(2) { animation-delay: .1s; }
+  .section:nth-child(3) { animation-delay: .15s; }
+  .section:nth-child(4) { animation-delay: .2s; }
+  .section:nth-child(5) { animation-delay: .25s; }
+  .section:nth-child(6) { animation-delay: .3s; }
+
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem;
+    color: var(--pink);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .num {
+    background: var(--pink);
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .section-sub {
+    color: #666;
+    margin-bottom: 24px;
+    font-size: .97rem;
+  }
+
+  /* ── PREP WORD BOX ── */
+  .word-bank {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .word-chip {
+    background: #f3e5f5;
+    color: #6a1b9a;
+    border: 2px solid #ce93d8;
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-weight: 700;
+    font-size: .9rem;
+    cursor: grab;
+    user-select: none;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .word-chip:hover { transform: scale(1.06); box-shadow: 0 4px 12px rgba(106,27,154,.25); }
+  .word-chip.used { opacity: .35; cursor: default; }
+  .word-chip.correct-chip { background: #e8f5e9; color: #2e7d32; border-color: #a5d6a7; }
+
+  /* ── EXERCISE 1 : drag prepositions ── */
+  .prep-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media(max-width:600px){ .prep-grid { grid-template-columns: 1fr 1fr; } }
+
+  .prep-card {
+    border-radius: 16px;
+    border: 2px dashed #ddd;
+    padding: 16px;
+    text-align: center;
+    transition: border-color .2s, background .2s;
+  }
+  .prep-card.drag-over { border-color: var(--pink); background: #fce4ec; }
+  .prep-card.correct-card { border-color: var(--correct); background: #e8f5e9; }
+  .prep-card.wrong-card   { border-color: var(--wrong);   background: #ffebee; animation: shake .4s; }
+  @keyframes shake {
+    0%,100%{ transform: translateX(0); }
+    25%{ transform: translateX(-6px); }
+    75%{ transform: translateX(6px); }
+  }
+
+  /* SVG illustrations for exercise 1 */
+  .prep-svg { width: 100%; max-width: 130px; height: 90px; }
+
+  .drop-zone {
+    min-height: 36px;
+    border-radius: 8px;
+    border: 2px dashed #bbb;
+    margin-top: 10px;
+    padding: 4px 8px;
+    font-weight: 700;
+    color: #666;
+    font-size: .95rem;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .drop-zone.filled { border-style: solid; border-color: var(--teal); color: var(--text); }
+  .drop-zone.correct-zone { border-color: var(--correct); color: var(--correct); background: #e8f5e9; }
+  .drop-zone.wrong-zone   { border-color: var(--wrong); color: var(--wrong); background: #ffebee; }
+
+  /* ── EXERCISE 2 : click to name ── */
+  .objects-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+  }
+  @media(max-width:600px){ .objects-grid { grid-template-columns: 1fr 1fr; } }
+
+  .obj-card {
+    border-radius: 16px;
+    border: 2px solid #e0e0e0;
+    padding: 14px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow .2s, transform .15s;
+  }
+  .obj-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.1); }
+  .obj-card.selected { border-color: var(--teal); background: #e0f7fa; }
+  .obj-card.correct-card { border-color: var(--correct); background: #e8f5e9; }
+  .obj-card.wrong-card   { border-color: var(--wrong); background: #ffebee; animation: shake .4s; }
+  .obj-card svg { width: 80px; height: 70px; }
+  .obj-label { font-size: .85rem; color: #888; margin-top: 6px; min-height: 22px; font-weight: 700; }
+
+  .obj-word-bank {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .obj-chip {
+    background: #e3f2fd;
+    color: #0d47a1;
+    border: 2px solid #90caf9;
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-weight: 700;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: transform .15s, background .15s;
+  }
+  .obj-chip:hover { transform: scale(1.05); background: #bbdefb; }
+  .obj-chip.used { opacity: .3; pointer-events: none; }
+
+  /* ── EXERCISE 3 : select correct sentence ── */
+  .q3-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media(max-width:600px){ .q3-grid { grid-template-columns: 1fr; } }
+
+  .q3-item { border: 2px solid #eee; border-radius: 16px; padding: 16px; }
+  .q3-item svg { width: 100%; max-height: 100px; }
+
+  .q3-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    font-size: .9rem;
+    font-weight: 600;
+    transition: background .15s, border-color .15s;
+  }
+  .q3-option:hover { background: #f5f5f5; }
+  .q3-option.chosen { border-color: var(--teal); background: #e0f7fa; }
+  .q3-option.correct { border-color: var(--correct); background: #e8f5e9; color: var(--correct); }
+  .q3-option.wrong   { border-color: var(--wrong); background: #ffebee; color: var(--wrong); }
+  .q3-radio { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #bbb; flex-shrink: 0; transition: all .15s; }
+  .q3-option.chosen .q3-radio { background: var(--teal); border-color: var(--teal); }
+  .q3-option.correct .q3-radio { background: var(--correct); border-color: var(--correct); }
+  .q3-option.wrong .q3-radio   { background: var(--wrong); border-color: var(--wrong); }
+
+  /* ── EXERCISE 4 : fill in blanks ── */
+  .e4-item {
+    background: #fafafa;
+    border-radius: 16px;
+    border: 2px solid #e0e0e0;
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .e4-item svg { flex-shrink: 0; width: 80px; height: 70px; }
+  .e4-sentence { flex: 1; font-size: 1rem; font-weight: 600; min-width: 200px; }
+  .blank-input {
+    border: none;
+    border-bottom: 3px solid var(--pink);
+    background: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    width: 90px;
+    text-align: center;
+    outline: none;
+    padding: 2px 4px;
+    transition: border-color .2s;
+  }
+  .blank-input:focus { border-color: var(--teal); }
+  .blank-input.correct { border-color: var(--correct); color: var(--correct); }
+  .blank-input.wrong   { border-color: var(--wrong); color: var(--wrong); }
+
+  /* ── EXERCISE 5 : True / False ── */
+  .tf-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
+  .tf-table thead th { font-family: 'Fredoka One', cursive; font-size: 1rem; padding: 6px 12px; }
+  .tf-row td { padding: 10px 14px; background: #fafafa; border-radius: 0; font-weight: 600; }
+  .tf-row td:first-child { border-radius: 14px 0 0 14px; }
+  .tf-row td:last-child  { border-radius: 0 14px 14px 0; text-align: center; }
+  .tf-btn {
+    padding: 6px 18px;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: .85rem;
+    cursor: pointer;
+    margin: 2px 3px;
+    transition: all .15s;
+  }
+  .tf-btn-t { background: #e8f5e9; color: var(--correct); border-color: #a5d6a7; }
+  .tf-btn-f { background: #ffebee; color: var(--wrong); border-color: #ef9a9a; }
+  .tf-btn.selected-t { background: var(--correct); color: white; }
+  .tf-btn.selected-f { background: var(--wrong); color: white; }
+  .tf-btn.result-correct { background: var(--correct); color: white; border-color: var(--correct); }
+  .tf-btn.result-wrong   { background: var(--wrong); color: white; border-color: var(--wrong); opacity: .5; }
+
+  /* ── EXERCISE 6 : Answer questions ── */
+  .q6-scene {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+  }
+  .q6-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width:600px){ .q6-list { grid-template-columns: 1fr; } }
+  .q6-item label { font-weight: 700; display: block; margin-bottom: 4px; font-size: .92rem; color: var(--pink); }
+  .q6-input {
+    width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: .95rem;
+    font-weight: 600;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .q6-input:focus { border-color: var(--teal); }
+  .q6-input.correct { border-color: var(--correct); background: #e8f5e9; }
+  .q6-input.hint    { border-color: var(--orange); background: #fff3e0; }
+
+  /* ── CHECK BUTTON ── */
+  .check-btn {
+    display: block;
+    margin: 20px auto 0;
+    background: linear-gradient(135deg, var(--pink), #9c27b0);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 40px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(233,30,140,.35);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .check-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(233,30,140,.4); }
+  .check-btn:active { transform: translateY(0); }
+
+  /* ── FEEDBACK TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--text);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+    z-index: 999;
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast.success { background: var(--correct); }
+  .toast.error   { background: var(--wrong); }
+
+  /* ── CONFETTI ── */
+  .confetti-piece {
+    position: fixed;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confettiFall 1.2s ease-in forwards;
+  }
+  @keyframes confettiFall {
+    0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* star rating */
+  .star-display { text-align: center; font-size: 2rem; margin: 10px 0 0; }
+
+  .hint-btn {
+    background: none;
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background .15s, color .15s;
+  }
+  .hint-btn:hover { background: var(--orange); color: white; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏠 Prepositions of Place</h1>
+  <p>Practice where things are!</p>
+  <div class="badge">A1 Level</div>
+</header>
+
+<div class="score-bar">
+  <div class="score-item"><div class="score-dot dot-correct"></div> Correct: <strong id="sc-correct">0</strong></div>
+  <div class="score-item"><div class="score-dot dot-wrong"></div> Wrong: <strong id="sc-wrong">0</strong></div>
+  <div class="score-item"><div class="score-dot dot-total"></div> Total: <strong id="total-score">0 / 0</strong></div>
+</div>
+
+<main>
+
+<!-- ═══════════════════════════════════════════
+     EXERCISE 1 – Write the prepositions
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-title"><div class="num">1</div> Write the prepositions</div>
+  <p class="section-sub">Drag the correct preposition to each picture. 🎯</p>
+
+  <div class="word-bank" id="wb1">
+    <div class="word-chip" draggable="true" data-word="under">under</div>
+    <div class="word-chip" draggable="true" data-word="behind">behind</div>
+    <div class="word-chip" draggable="true" data-word="on">on</div>
+    <div class="word-chip" draggable="true" data-word="next to">next to</div>
+    <div class="word-chip" draggable="true" data-word="between">between</div>
+    <div class="word-chip correct-chip" data-word="in">in ✓</div>
+    <div class="word-chip" draggable="true" data-word="in front of">in front of</div>
+    <div class="word-chip" draggable="true" data-word="above">above</div>
+  </div>
+
+  <div class="prep-grid" id="prep-grid">
+    <!-- cards filled by JS -->
+  </div>
+
+  <button class="check-btn" onclick="checkEx1()">✅ Check Answers</button>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     EXERCISE 2 – Name the objects
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-title"><div class="num">2</div> Name the objects</div>
+  <p class="section-sub">Click a word below, then click the matching picture! 🖼️</p>
+
+  <div class="obj-word-bank" id="wb2">
+    <div class="obj-chip" data-word="laptop">laptop</div>
+    <div class="obj-chip" data-word="fridge">fridge</div>
+    <div class="obj-chip" data-word="stove">stove</div>
+    <div class="obj-chip" data-word="sofa">sofa</div>
+    <div class="obj-chip correct-chip" style="pointer-events:none;opacity:.4">lamp ✓</div>
+    <div class="obj-chip" data-word="chair">chair</div>
+    <div class="obj-chip" data-word="phone">phone</div>
+    <div class="obj-chip" data-word="table">table</div>
+    <div class="obj-chip" data-word="bed">bed</div>
+    <div class="obj-chip" data-word="wardrobe">wardrobe</div>
+    <div class="obj-chip" data-word="TV">TV</div>
+    <div class="obj-chip" data-word="shower">shower</div>
+  </div>
+
+  <div class="objects-grid" id="obj-grid">
+    <!-- filled by JS -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     EXERCISE 3 – Select the correct sentence
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-title"><div class="num">3</div> Select the correct sentence</div>
+  <p class="section-sub">Choose the sentence that matches the picture. 🔍</p>
+
+  <div class="q3-grid" id="q3-grid">
+    <!-- filled by JS -->
+  </div>
+
+  <button class="check-btn" onclick="checkEx3()">✅ Check Answers</button>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     EXERCISE 4 – Describe locations
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-title"><div class="num">4</div> Describe the objects' locations</div>
+  <p class="section-sub">Type the missing words to complete each sentence. ✏️</p>
+
+  <div id="ex4-container"></div>
+
+  <button class="check-btn" onclick="checkEx4()">✅ Check Answers</button>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     EXERCISE 5 – True or False
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-title"><div class="num">5</div> True or False?</div>
+  <p class="section-sub">Look at the bedroom scene and decide! 🛏️</p>
+
+  <!-- Room scene SVG -->
+  <div class="q6-scene">
+    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#f9f3ee">
+      <!-- Floor -->
+      <rect x="0" y="220" width="600" height="40" fill="#d7b896"/>
+      <!-- Wall -->
+      <rect x="0" y="0" width="600" height="220" fill="#f9f3ee"/>
+
+      <!-- TV on wall -->
+      <rect x="40" y="20" width="160" height="100" rx="8" fill="#222" stroke="#555" stroke-width="2"/>
+      <rect x="46" y="26" width="148" height="88" fill="#4a90d9"/>
+      <rect x="108" y="120" width="24" height="10" fill="#888"/>
+      <rect x="95" y="130" width="50" height="4" fill="#888"/>
+      <text x="120" y="75" text-anchor="middle" font-size="11" fill="white" font-family="Fredoka One">TV</text>
+
+      <!-- Wardrobe right side -->
+      <rect x="480" y="40" width="110" height="180" rx="6" fill="#c8a26a" stroke="#8d6e3a" stroke-width="2"/>
+      <line x1="535" y1="40" x2="535" y2="220" stroke="#8d6e3a" stroke-width="2"/>
+      <circle cx="527" cy="135" r="5" fill="#5d4037"/>
+      <circle cx="543" cy="135" r="5" fill="#5d4037"/>
+      <!-- lamp on wardrobe -->
+      <line x1="535" y1="40" x2="535" y2="20" stroke="#888" stroke-width="2"/>
+      <polygon points="515,20 555,20 545,38 525,38" fill="#ffcc02" stroke="#e6a800" stroke-width="1.5"/>
+      <text x="535" y="14" text-anchor="middle" font-size="9" fill="#555">lamp</text>
+
+      <!-- Bed -->
+      <rect x="180" y="110" width="260" height="110" rx="10" fill="#90caf9" stroke="#5c9fc7" stroke-width="2"/>
+      <!-- pillow -->
+      <rect x="196" y="118" width="80" height="50" rx="8" fill="#c8e6fa" stroke="#5c9fc7" stroke-width="1.5"/>
+      <rect x="290" y="118" width="80" height="50" rx="8" fill="#c8e6fa" stroke="#5c9fc7" stroke-width="1.5"/>
+      <!-- blanket -->
+      <rect x="196" y="165" width="230" height="50" rx="6" fill="#64b5f6"/>
+      <!-- laptop on bed -->
+      <rect x="355" y="148" width="50" height="34" rx="3" fill="#555"/>
+      <rect x="358" y="151" width="44" height="28" rx="2" fill="#7ec8e3"/>
+      <rect x="348" y="182" width="62" height="5" rx="2" fill="#333"/>
+      <!-- phone on bed -->
+      <rect x="415" y="158" width="22" height="36" rx="4" fill="#e91e8c" stroke="#c2185b" stroke-width="1.5"/>
+      <rect x="418" y="162" width="16" height="26" rx="2" fill="#fce4ec"/>
+
+      <!-- Chair in front of bed -->
+      <rect x="230" y="190" width="60" height="6" rx="3" fill="#8d6e3a"/>
+      <rect x="232" y="196" width="12" height="30" rx="2" fill="#8d6e3a"/>
+      <rect x="274" y="196" width="12" height="30" rx="2" fill="#8d6e3a"/>
+      <rect x="230" y="158" width="60" height="32" rx="4" fill="#bcaaa4"/>
+      <rect x="226" y="148" width="68" height="12" rx="4" fill="#8d6e3a"/>
+
+      <!-- Ball between bed and wardrobe -->
+      <circle cx="445" cy="205" r="22" fill="#4caf50" stroke="#388e3c" stroke-width="2"/>
+      <path d="M430,194 Q445,200 460,194" stroke="#388e3c" stroke-width="2" fill="none"/>
+      <path d="M425,208 Q445,215 465,208" stroke="#388e3c" stroke-width="2" fill="none"/>
+
+      <!-- Dog next to wardrobe -->
+      <ellipse cx="458" cy="216" rx="22" ry="14" fill="#b58c5c"/>
+      <circle cx="444" cy="208" r="11" fill="#c4a06a"/>
+      <ellipse cx="438" cy="205" rx="5" ry="7" fill="#a07840"/>
+      <ellipse cx="450" cy="205" rx="5" ry="7" fill="#a07840"/>
+      <circle cx="442" cy="210" r="3" fill="#5d4037"/>
+      <ellipse cx="444" cy="214" rx="4" ry="2" fill="#ff8a65"/>
+
+      <!-- Labels -->
+      <text x="120" y="140" text-anchor="middle" font-size="9" fill="#555" font-family="Nunito">TV</text>
+      <text x="310" y="108" text-anchor="middle" font-size="9" fill="#555" font-family="Nunito">bed</text>
+      <text x="535" y="235" text-anchor="middle" font-size="9" fill="#555" font-family="Nunito">wardrobe</text>
+      <text x="260" y="245" text-anchor="middle" font-size="9" fill="#555" font-family="Nunito">chair</text>
+      <text x="445" y="245" text-anchor="middle" font-size="9" fill="#555" font-family="Nunito">ball</text>
+    </svg>
+  </div>
+
+  <table class="tf-table">
+    <thead>
+      <tr>
+        <th style="text-align:left">Statement</th>
+        <th>TRUE</th>
+        <th>FALSE</th>
+      </tr>
+    </thead>
+    <tbody id="tf-body"></tbody>
+  </table>
+
+  <button class="check-btn" onclick="checkEx5()">✅ Check Answers</button>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     EXERCISE 6 – Answer the questions
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-title"><div class="num">6</div> Answer the questions</div>
+  <p class="section-sub">Look at the living room and write full sentences! ✍️</p>
+
+  <div class="q6-scene">
+    <svg viewBox="0 0 660 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#fffde7">
+      <!-- Floor -->
+      <rect x="0" y="240" width="660" height="40" fill="#d7ccc8"/>
+      <!-- Wall -->
+      <rect x="0" y="0" width="660" height="240" fill="#fffde7"/>
+
+      <!-- Big Table -->
+      <rect x="100" y="130" width="220" height="10" rx="4" fill="#8d6e3a"/>
+      <rect x="110" y="140" width="12" height="100" rx="3" fill="#795548"/>
+      <rect x="298" y="140" width="12" height="100" rx="3" fill="#795548"/>
+
+      <!-- Laptop on table -->
+      <rect x="120" y="100" width="70" height="30" rx="3" fill="#444"/>
+      <rect x="123" y="103" width="64" height="24" rx="2" fill="#29b6f6"/>
+      <rect x="110" y="130" width="80" height="6" rx="2" fill="#333"/>
+
+      <!-- Lamp on table -->
+      <line x1="230" y1="130" x2="230" y2="80" stroke="#888" stroke-width="3"/>
+      <polygon points="210,80 250,80 244,100 216,100" fill="#ffd54f" stroke="#f9a825" stroke-width="1.5"/>
+      <circle cx="230" cy="100" r="6" fill="#fff9c4"/>
+
+      <!-- Chair left of table -->
+      <rect x="40" y="155" width="55" height="5" rx="3" fill="#5d4037"/>
+      <rect x="42" y="160" width="10" height="80" rx="2" fill="#5d4037"/>
+      <rect x="78" y="160" width="10" height="80" rx="2" fill="#5d4037"/>
+      <rect x="40" y="120" width="55" height="35" rx="5" fill="#bcaaa4"/>
+      <rect x="36" y="108" width="63" height="14" rx="4" fill="#8d6e3a"/>
+
+      <!-- Chair right of table -->
+      <rect x="330" y="155" width="55" height="5" rx="3" fill="#5d4037"/>
+      <rect x="332" y="160" width="10" height="80" rx="2" fill="#5d4037"/>
+      <rect x="368" y="160" width="10" height="80" rx="2" fill="#5d4037"/>
+      <rect x="330" y="120" width="55" height="35" rx="5" fill="#bcaaa4"/>
+      <rect x="326" y="108" width="63" height="14" rx="4" fill="#8d6e3a"/>
+
+      <!-- Sofa -->
+      <rect x="390" y="160" width="175" height="80" rx="12" fill="#80cbc4" stroke="#4db6ac" stroke-width="2"/>
+      <rect x="390" y="140" width="175" height="25" rx="8" fill="#4db6ac"/>
+      <rect x="390" y="148" width="20" height="92" rx="8" fill="#4db6ac"/>
+      <rect x="545" y="148" width="20" height="92" rx="8" fill="#4db6ac"/>
+
+      <!-- Tony on sofa -->
+      <!-- body -->
+      <ellipse cx="500" cy="190" rx="22" ry="30" fill="#c62828"/>
+      <!-- head -->
+      <circle cx="500" cy="156" r="20" fill="#5d4037"/>
+      <!-- glasses -->
+      <rect x="490" y="153" width="10" height="7" rx="3" fill="none" stroke="#222" stroke-width="1.5"/>
+      <rect x="502" y="153" width="10" height="7" rx="3" fill="none" stroke="#222" stroke-width="1.5"/>
+      <line x1="500" y1="156" x2="502" y2="156" stroke="#222" stroke-width="1"/>
+      <!-- legs -->
+      <rect x="488" y="218" width="14" height="30" rx="5" fill="#1b5e20"/>
+      <rect x="504" y="218" width="14" height="30" rx="5" fill="#1b5e20"/>
+
+      <!-- Dog on sofa next to Tony -->
+      <ellipse cx="455" cy="200" rx="20" ry="12" fill="#b58c5c"/>
+      <circle cx="440" cy="192" r="10" fill="#c4a06a"/>
+      <ellipse cx="434" cy="190" rx="4" ry="6" fill="#a07840"/>
+      <ellipse cx="446" cy="190" rx="4" ry="6" fill="#a07840"/>
+
+      <!-- TV (small table with TV) -->
+      <!-- small table -->
+      <rect x="580" y="200" width="70" height="8" rx="3" fill="#8d6e3a"/>
+      <rect x="583" y="208" width="8" height="32" rx="2" fill="#795548"/>
+      <rect x="638" y="208" width="8" height="32" rx="2" fill="#795548"/>
+      <!-- TV -->
+      <rect x="572" y="130" width="86" height="68" rx="6" fill="#222" stroke="#444" stroke-width="2"/>
+      <rect x="577" y="135" width="76" height="58" fill="#37474f"/>
+      <rect x="604" y="198" width="22" height="5" fill="#888"/>
+      <text x="615" y="168" text-anchor="middle" font-size="10" fill="#90caf9" font-family="Fredoka One">TV</text>
+
+      <!-- Phone on small table -->
+      <rect x="593" y="188" width="14" height="23" rx="3" fill="#e91e8c" stroke="#c2185b" stroke-width="1"/>
+
+      <!-- Ball -->
+      <circle cx="300" cy="228" r="20" fill="#42a5f5" stroke="#1565c0" stroke-width="2"/>
+      <path d="M285,220 Q300,226 315,220" stroke="#1565c0" stroke-width="1.5" fill="none"/>
+
+      <!-- Labels -->
+      <text x="210" y="250" text-anchor="middle" font-size="9" fill="#666" font-family="Nunito">big table</text>
+      <text x="65" y="250" text-anchor="middle" font-size="9" fill="#666" font-family="Nunito">chair</text>
+      <text x="357" y="250" text-anchor="middle" font-size="9" fill="#666" font-family="Nunito">chair</text>
+      <text x="477" y="250" text-anchor="middle" font-size="9" fill="#666" font-family="Nunito">sofa</text>
+      <text x="615" y="250" text-anchor="middle" font-size="9" fill="#666" font-family="Nunito">small table</text>
+      <text x="300" y="256" text-anchor="middle" font-size="9" fill="#666" font-family="Nunito">ball</text>
+    </svg>
+  </div>
+
+  <div class="q6-list" id="q6-list"></div>
+
+  <button class="check-btn" onclick="checkEx6()">✅ Check Answers</button>
+</section>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════
+   DATA
+═══════════════════════════════════════ */
+
+// Exercise 1 – prepositions with SVG descriptions
+const ex1Data = [
+  { answer: 'in',         svg: svgBallIn(),      label: '' },
+  { answer: 'on',         svg: svgBallOn(),      label: '' },
+  { answer: 'behind',     svg: svgBallBehind(),  label: '' },
+  { answer: 'under',      svg: svgBallUnder(),   label: '' },
+  { answer: 'in front of',svg: svgBallFront(),   label: '' },
+  { answer: 'above',      svg: svgBallAbove(),   label: '' },
+  { answer: 'between',    svg: svgBallBetween(), label: '' },
+  { answer: 'next to',    svg: svgBallNextTo(),  label: '' },
+];
+
+// Exercise 2 – objects with SVG
+const ex2Data = [
+  { answer: 'phone',    svg: svgPhone(),    done: false },
+  { answer: 'TV',       svg: svgTV(),       done: false },
+  { answer: 'chair',    svg: svgChair(),    done: false },
+  { answer: 'laptop',   svg: svgLaptop(),   done: false },
+  { answer: 'table',    svg: svgTable(),    done: false },
+  { answer: 'fridge',   svg: svgFridge(),   done: false },
+  { answer: 'bed',      svg: svgBed(),      done: false },
+  { answer: 'shower',   svg: svgShower(),   done: false },
+  { answer: 'sofa',     svg: svgSofa(),     done: false },
+  { answer: 'wardrobe', svg: svgWardrobe(), done: false },
+  { answer: 'stove',    svg: svgStove(),    done: false },
+];
+
+// Exercise 3
+const ex3Data = [
+  { svg: svgDogShower(), options: ['The dog is in the shower.','The dog is next to the shower.'], correct: 0 },
+  { svg: svgStoveTable(), options: ['The table is under the stove.','The stove is under the table.'], correct: 1 },
+  { svg: svgWardrobeBed(), options: ['The wardrobe is in front of the bed.','The wardrobe is behind the bed.'], correct: 0 },
+  { svg: svgLampBetween(), options: ['The lamp is under the chair and the phone.','The lamp is between the chair and the phone.'], correct: 1 },
+  { svg: svgTVTable(), options: ['The TV and the phone are next to the table.','The TV and the phone are above the table.'], correct: 0 },
+  { svg: svgPhoneChair(), options: ['The phone is next to the chair.','The lamp is next to the chair.'], correct: 0 },
+  { svg: svgLampWardrobe(), options: ['The lamp and the ball are on the wardrobe.','The lamp and the ball are in the wardrobe.'], correct: 0 },
+  { svg: svgLaptopFridge(), options: ['The laptop is on the fridge.','The laptop is in the fridge.'], correct: 0 },
+];
+
+// Exercise 4
+const ex4Data = [
+  { svg: svgPhoneIn(),    template: ['The ', 'phone',  ' is ', 'in',        ' the box.'],    blanks: ['phone','in'] },
+  { svg: svgLampOn(),     template: ['The ', 'lamp',   ' is ', 'on',        ' the box.'],    blanks: ['lamp','on'] },
+  { svg: svgTVPhone2(),   template: ['The ', 'TV',     ' and the ', 'phone', ' are ', 'next to', ' the box.'], blanks: ['TV','phone','next to'] },
+  { svg: svgShowerIn(),   template: ['The ', 'shower', ' is ', 'in front of',' the box.'],   blanks: ['shower','in front of'] },
+  { svg: svgLaptopOn(),   template: ['The ', 'laptop', ' is ', 'above',     ' the box.'],    blanks: ['laptop','above'] },
+  { svg: svgSofaBox(),    template: ['The ', 'box',    ' and the ', 'sofa',  ' are ', 'next to', ' the box.'], blanks: ['box','sofa','next to'] },
+  { svg: svgStoveBox(),   template: ['The ', 'stove',  ' is ', 'next to',   ' the box.'],    blanks: ['stove','next to'] },
+  { svg: svgChairBox(),   template: ['The ', 'chair',  ' is ', 'on',        ' the box.'],    blanks: ['chair','on'] },
+];
+
+// Exercise 5 – True or False (based on bedroom scene)
+const ex5Data = [
+  { text: 'The dog is under the wardrobe.',              answer: false },
+  { text: 'The TV is above the bed.',                    answer: true  },
+  { text: 'The chair and the lamp are in front of the bed.', answer: false },
+  { text: 'The chair is next to the dog.',               answer: false },
+  { text: 'The phone and the laptop are on the bed.',    answer: true  },
+  { text: 'The ball is between the bed and the wardrobe.', answer: true  },
+  { text: 'The wardrobe is behind the bed.',             answer: false },
+  { text: 'The TV is between the sofa and the chair.',   answer: false },
+  { text: 'The bed and the chair are in front of the TV.', answer: false },
+];
+
+// Exercise 6 – questions + accepted answers
+const ex6Data = [
+  { q: 'Where is Tony?',                   accept: ['on the sofa','next to the dog','on the sofa next to the dog'] },
+  { q: 'Where is the phone?',              accept: ['on the small table','next to the tv','on the table'] },
+  { q: 'Where are the laptop and the lamp?', accept: ['on the big table','on the table'] },
+  { q: 'Where is the big table?',          accept: ['next to the chairs','between the chairs','in the room'] },
+  { q: 'Where is the ball?',               accept: ['in front of the sofa','next to the sofa','on the floor'] },
+  { q: 'Where is the TV?',                 accept: ['on the small table','above the small table'] },
+  { q: 'Where are the chairs?',            accept: ['next to the table','in front of the table','at the table'] },
+  { q: 'Where is the dog?',                accept: ['on the sofa','next to tony','between tony and the arm'] },
+  { q: 'Where is the small table?',        accept: ['next to the sofa','in front of the tv'] },
+];
+
+/* ═══════════════════════════════════════
+   SVG GENERATORS – Exercise 1
+═══════════════════════════════════════ */
+function boxSVG(extraContent, label) {
+  return `<svg class="prep-svg" viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+    <rect x="30" y="44" width="70" height="40" rx="4" fill="#cfd8dc" stroke="#90a4ae" stroke-width="2"/>
+    <polygon points="30,44 65,28 100,44" fill="#eceff1" stroke="#90a4ae" stroke-width="2"/>
+    ${extraContent}
+  </svg>`;
+}
+function circle(cx,cy,r='14',fill='#00bcd4') { return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" stroke="#0097a7" stroke-width="1.5"/>`; }
+
+function svgBallIn()      { return boxSVG(circle(65,58),'in'); }
+function svgBallOn()      { return boxSVG(circle(65,30),'on'); }
+function svgBallBehind()  { return boxSVG(`<rect x="55" y="40" width="20" height="28" rx="3" fill="#eceff1" stroke="#90a4ae" stroke-width="2"/>${circle(65,45)}`,'behind'); }
+function svgBallUnder()   { return boxSVG(circle(65,80),'under'); }
+function svgBallFront()   { return boxSVG(circle(65,82),'in front of'); }
+function svgBallAbove()   { return boxSVG(circle(65,14),'above'); }
+function svgBallBetween() {
+  return `<svg class="prep-svg" viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="44" width="40" height="30" rx="4" fill="#cfd8dc" stroke="#90a4ae" stroke-width="2"/>
+    <rect x="80" y="44" width="40" height="30" rx="4" fill="#cfd8dc" stroke="#90a4ae" stroke-width="2"/>
+    ${circle(65,58)}
+  </svg>`;
+}
+function svgBallNextTo()  {
+  return `<svg class="prep-svg" viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+    <rect x="15" y="44" width="55" height="40" rx="4" fill="#cfd8dc" stroke="#90a4ae" stroke-width="2"/>
+    ${circle(95,58)}
+  </svg>`;
+}
+
+/* ═══════════════════════════════════════
+   SVG GENERATORS – Exercise 2 objects
+═══════════════════════════════════════ */
+function svgPhone() {
+  return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
+    <rect x="25" y="5" width="30" height="55" rx="6" fill="#e91e8c" stroke="#c2185b" stroke-width="2"/>
+    <rect x="29" y="12" width="22" height="38" rx="2" fill="#fce4ec"/>
+    <circle cx="40" cy="54" r="3" fill="#c2185b"/>
+  </svg>`;
+}
+function svgTV() {
+  return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="8" width="64" height="42" rx="5" fill="#222" stroke="#555" stroke-width="2"/>
+    <rect x="13" y="13" width="54" height="32" fill="#4a90d9"/>
+    <rect x="34" y="50" width="12" height="8" fill="#888"/>
+    <rect x="24" y="58" width="32" height="4" rx="2" fill="#888"/>
+    <text x="40" y="33" text-anchor="middle" font-size="10" fill="white" font-family="Fredoka One">TV</text>
+  </svg>`;
+}
+function svgChair() {
+  return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
+    <rect x="15" y="25" width="50" height="20" rx="5" fill="#bcaaa4" stroke="#8d6e3a" stroke-width="1.5"/>
+    <rect x="10" y="12" width="60" height="15" rx="4" fill="#8d6e3a"/>
+    <rect x="15" y="45" width="10" height="22" rx="3" fill="#795548"/>
+    <rect x="55" y="45" width="10" height="22" rx="3" fill="#795548"/>
+  </svg>`;
+}
+function svgLaptop() {
+  return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="18" width="60" height="36" rx="4" fill="#455a64" stroke="#37474f" stroke-width="1.5"/>
+    <rect x="14" y="22" width="52" height="28" rx="2" fill="#29b6f6"/>
+    <rect x="5" y="54" width="70" height="7" rx="3" fill="#37474f"/>
+  </svg>`;
+}
+function svgTable() {
+  return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
+    <rect x="5" y="28" width="70" height="8" rx="3" fill="#8d6e3a"/>
+    <rect x="12" y="36" width="8" height="28" rx="3" fill="#795548"/>
+    <rect x="60" y="36" width="8" height="28" rx="3" fill="#795548"/>
+  </svg>`;
+}
+function svgFridge() {
+  return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
+    <rect x="18" y="5" width="44" height="60" rx="5" fill="#90caf9" stroke="#5c9fc7" stroke-width="2"/>
+    <line x1="18" y1="28" x2="62" y2="28" stroke="#5c9fc7" stroke-width="2"/>
+    <rect x="22" y="10" width="6" height="14" rx="2" fill="#5c9fc7"/>
+    <rect x="22" y="32" width="6" height="24" rx="2" fill="#5c9fc7"/>
+  </svg>`;
+}
+function svgBed() {
+  return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="30" width="64" height="32" rx="6" fill="#90caf9" stroke="#5c9fc7" stroke-width="2"/>
+    <rect x="12" y="18" width="26" height="14" rx="4" fill="#c8e6fa" stroke="#5c9fc7" stroke-width="1.5"/>
+    <rect x="42" y="18" width="26" height="14" rx="4" fill="#c8e6fa" stroke="#5c9fc7" stroke-width="1.5"/>
+    <rect x="8" y="58" width="12" height="10" rx="2" fill="#5c9fc7"/>
+    <rect x="60" y="58" width="12" height="10" rx="2" fill="#5c9fc7"/>
+  </svg>`;
+}
+function svgShower() {
+  return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="40" cy="58" rx="30" ry="12" fill="#e1f5fe" stroke="#81d4fa" stroke-width="2"/>
+    <path d="M18,58 Q18,30 40,28 Q62,30 62,58" fill="#e1f5fe" stroke="#81d4fa" stroke-width="2"/>
+    <line x1="40" y1="10" x2="40" y2="28" stroke="#90a4ae" stroke-width="3"/>
+    <circle cx="40" cy="8" r="6" fill="#b0bec5" stroke="#90a4ae" stroke-width="1.5"/>
+    <line x1="34" y1="20" x2="30" y2="26" stroke="#29b6f6" stroke-width="1.5"/>
+    <line x1="40" y1="20" x2="40" y2="26" stroke="#29b6f6" stroke-width="1.5"/>
+    <line x1="46" y1="20" x2="50" y2="26" stroke="#29b6f6" stroke-width="1.5"/>
+  </svg>`;
+}
+function svgSofa() {
+  return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="32" width="60" height="28" rx="8" fill="#80cbc4" stroke="#4db6ac" stroke-width="2"/>
+    <rect x="10" y="22" width="60" height="14" rx="6" fill="#4db6ac"/>
+    <rect x="10" y="25" width="8" height="35" rx="4" fill="#4db6ac"/>
+    <rect x="62" y="25" width="8" height="35" rx="4" fill="#4db6ac"/>
+  </svg>`;
+}
+function svgWardrobe() {
+  return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
+    <rect x="12" y="5" width="56" height="60" rx="5" fill="#c8a26a" stroke="#8d6e3a" stroke-width="2"/>
+    <line x1="40" y1="5" x2="40" y2="65" stroke="#8d6e3a" stroke-width="2"/>
+    <circle cx="36" cy="38" r="4" fill="#5d4037"/>
+    <circle cx="44" cy="38" r="4" fill="#5d4037"/>
+  </svg>`;
+}
+function svgStove() {
+  return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="15" width="60" height="50" rx="5" fill="#eeeeee" stroke="#bdbdbd" stroke-width="2"/>
+    <rect x="10" y="35" width="60" height="30" rx="4" fill="#e0e0e0"/>
+    <circle cx="28" cy="28" r="7" fill="#bdbdbd" stroke="#9e9e9e" stroke-width="1.5"/>
+    <circle cx="52" cy="28" r="7" fill="#bdbdbd" stroke="#9e9e9e" stroke-width="1.5"/>
+    <circle cx="28" cy="28" r="3" fill="#ef5350"/>
+    <circle cx="52" cy="28" r="3" fill="#ef5350"/>
+    <rect x="22" y="41" width="36" height="18" rx="3" fill="#90caf9" stroke="#5c9fc7" stroke-width="1.5"/>
+  </svg>`;
+}
+
+/* ═══════════════════════════════════════
+   SVG GENERATORS – Exercise 3
+═══════════════════════════════════════ */
+function svgDogShower() {
+  return `<svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="60" cy="72" rx="35" ry="14" fill="#e1f5fe" stroke="#81d4fa" stroke-width="2"/>
+    <path d="M28,72 Q28,46 60,44 Q92,46 92,72" fill="#e1f5fe" stroke="#81d4fa" stroke-width="2"/>
+    <line x1="60" y1="18" x2="60" y2="44" stroke="#90a4ae" stroke-width="3"/>
+    <circle cx="60" cy="14" r="7" fill="#b0bec5" stroke="#90a4ae" stroke-width="1.5"/>
+    <!-- dog in shower -->
+    <ellipse cx="60" cy="68" rx="18" ry="10" fill="#c4a06a"/>
+    <circle cx="48" cy="60" r="9" fill="#d4b07a"/>
+    <ellipse cx="42" cy="58" rx="4" ry="6" fill="#b58c5c"/>
+    <ellipse cx="54" cy="58" rx="4" ry="6" fill="#b58c5c"/>
+  </svg>`;
+}
+function svgStoveTable() {
+  return `<svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+    <!-- table -->
+    <rect x="20" y="54" width="80" height="6" rx="3" fill="#8d6e3a"/>
+    <rect x="28" y="60" width="8" height="24" rx="2" fill="#795548"/>
+    <rect x="84" y="60" width="8" height="24" rx="2" fill="#795548"/>
+    <!-- stove on table -->
+    <rect x="28" y="24" width="64" height="30" rx="4" fill="#eee" stroke="#bdbdbd" stroke-width="2"/>
+    <circle cx="45" cy="36" r="7" fill="#bdbdbd" stroke="#9e9e9e" stroke-width="1.5"/>
+    <circle cx="75" cy="36" r="7" fill="#bdbdbd" stroke="#9e9e9e" stroke-width="1.5"/>
+    <circle cx="45" cy="36" r="3" fill="#ef5350"/>
+    <circle cx="75" cy="36" r="3" fill="#ef5350"/>
+  </svg>`;
+}
+function svgWardrobeBed() {
+  return `<svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+    <!-- bed -->
+    <rect x="10" y="45" width="65" height="38" rx="6" fill="#90caf9" stroke="#5c9fc7" stroke-width="2"/>
+    <rect x="14" y="34" width="22" height="13" rx="4" fill="#c8e6fa" stroke="#5c9fc7" stroke-width="1.5"/>
+    <rect x="40" y="34" width="22" height="13" rx="4" fill="#c8e6fa" stroke="#5c9fc7" stroke-width="1.5"/>
+    <!-- wardrobe in front of bed -->
+    <rect x="78" y="20" width="36" height="64" rx="4" fill="#c8a26a" stroke="#8d6e3a" stroke-width="2"/>
+    <line x1="96" y1="20" x2="96" y2="84" stroke="#8d6e3a" stroke-width="1.5"/>
+    <circle cx="93" cy="54" r="3" fill="#5d4037"/>
+    <circle cx="99" cy="54" r="3" fill="#5d4037"/>
+  </svg>`;
+}
+function svgLampBetween() {
+  return `<svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+    <!-- chair -->
+    <rect x="5" y="40" width="34" height="18" rx="4" fill="#bcaaa4" stroke="#8d6e3a" stroke-width="1.5"/>
+    <rect x="3" y="30" width="38" height="12" rx="3" fill="#8d6e3a"/>
+    <rect x="5" y="58" width="8" height="20" rx="2" fill="#795548"/>
+    <rect x="29" y="58" width="8" height="20" rx="2" fill="#795548"/>
+    <!-- phone -->
+    <rect x="88" y="36" width="22" height="36" rx="5" fill="#e91e8c" stroke="#c2185b" stroke-width="1.5"/>
+    <rect x="91" y="40" width="16" height="28" rx="2" fill="#fce4ec"/>
+    <!-- lamp between -->
+    <line x1="60" y1="72" x2="60" y2="42" stroke="#888" stroke-width="2.5"/>
+    <polygon points="45,42 75,42 70,58 50,58" fill="#ffd54f" stroke="#f9a825" stroke-width="1.5"/>
+  </svg>`;
+}
+function svgTVTable() {
+  return `<svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+    <!-- table -->
+    <rect x="10" y="56" width="100" height="6" rx="3" fill="#8d6e3a"/>
+    <rect x="18" y="62" width="8" height="24" rx="2" fill="#795548"/>
+    <rect x="94" y="62" width="8" height="24" rx="2" fill="#795548"/>
+    <!-- TV -->
+    <rect x="18" y="20" width="50" height="34" rx="4" fill="#222" stroke="#555" stroke-width="2"/>
+    <rect x="22" y="24" width="42" height="26" fill="#4a90d9"/>
+    <!-- phone -->
+    <rect x="78" y="30" width="18" height="28" rx="4" fill="#e91e8c" stroke="#c2185b" stroke-width="1.5"/>
+    <rect x="81" y="34" width="12" height="20" rx="2" fill="#fce4ec"/>
+  </svg>`;
+}
+function svgPhoneChair() {
+  return `<svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+    <!-- chair -->
+    <rect x="15" y="36" width="50" height="22" rx="5" fill="#bcaaa4" stroke="#8d6e3a" stroke-width="1.5"/>
+    <rect x="12" y="24" width="56" height="14" rx="4" fill="#8d6e3a"/>
+    <rect x="15" y="58" width="10" height="22" rx="3" fill="#795548"/>
+    <rect x="53" y="58" width="10" height="22" rx="3" fill="#795548"/>
+    <!-- lamp next to chair -->
+    <line x1="95" y1="78" x2="95" y2="48" stroke="#888" stroke-width="2.5"/>
+    <polygon points="82,48 108,48 103,62 87,62" fill="#ffd54f" stroke="#f9a825" stroke-width="1.5"/>
+  </svg>`;
+}
+function svgLampWardrobe() {
+  return `<svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+    <!-- wardrobe -->
+    <rect x="20" y="10" width="80" height="70" rx="5" fill="#c8a26a" stroke="#8d6e3a" stroke-width="2"/>
+    <line x1="60" y1="10" x2="60" y2="80" stroke="#8d6e3a" stroke-width="2"/>
+    <circle cx="56" cy="48" r="4" fill="#5d4037"/>
+    <circle cx="64" cy="48" r="4" fill="#5d4037"/>
+    <!-- lamp on top -->
+    <line x1="40" y1="10" x2="40" y2="-2" stroke="#888" stroke-width="2"/>
+    <polygon points="28,-2 52,-2 48,10 32,10" fill="#ffd54f" stroke="#f9a825" stroke-width="1.5"/>
+    <!-- ball on top -->
+    <circle cx="80" cy="5" r="8" fill="#4caf50" stroke="#388e3c" stroke-width="1.5"/>
+  </svg>`;
+}
+function svgLaptopFridge() {
+  return `<svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+    <!-- fridge -->
+    <rect x="28" y="10" width="64" height="74" rx="5" fill="#90caf9" stroke="#5c9fc7" stroke-width="2"/>
+    <line x1="28" y1="42" x2="92" y2="42" stroke="#5c9fc7" stroke-width="2"/>
+    <rect x="33" y="16" width="8" height="20" rx="2" fill="#5c9fc7"/>
+    <rect x="33" y="46" width="8" height="30" rx="2" fill="#5c9fc7"/>
+    <!-- laptop on top -->
+    <rect x="20" y="0" width="80" height="12" rx="3" fill="#37474f"/>
+    <rect x="24" y="-14" width="72" height="16" rx="3" fill="#455a64" stroke="#37474f" stroke-width="1.5"/>
+    <rect x="27" y="-11" width="66" height="11" rx="2" fill="#29b6f6"/>
+  </svg>`;
+}
+
+/* Exercise 4 small SVGs */
+function svgPhoneIn()   { return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="30" width="50" height="34" rx="4" fill="#cfd8dc" stroke="#90a4ae" stroke-width="2"/><rect x="30" y="10" width="20" height="34" rx="5" fill="#e91e8c" stroke="#c2185b" stroke-width="1.5"/><rect x="33" y="14" width="14" height="24" rx="2" fill="#fce4ec"/></svg>`; }
+function svgLampOn()    { return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="38" width="60" height="26" rx="4" fill="#cfd8dc" stroke="#90a4ae" stroke-width="2"/><line x1="40" y1="38" x2="40" y2="18" stroke="#888" stroke-width="2.5"/><polygon points="26,18 54,18 50,30 30,30" fill="#ffd54f" stroke="#f9a825" stroke-width="1.5"/></svg>`; }
+function svgTVPhone2()  { return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="38" width="70" height="26" rx="4" fill="#cfd8dc" stroke="#90a4ae" stroke-width="2"/><rect x="8" y="10" width="36" height="28" rx="3" fill="#222" stroke="#555"/><rect x="11" y="13" width="30" height="20" fill="#4a90d9"/><rect x="50" y="16" width="16" height="26" rx="4" fill="#e91e8c" stroke="#c2185b"/><rect x="52" y="19" width="12" height="20" rx="2" fill="#fce4ec"/></svg>`; }
+function svgShowerIn()  { return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="35" width="60" height="30" rx="4" fill="#cfd8dc" stroke="#90a4ae" stroke-width="2"/><ellipse cx="40" cy="48" rx="20" ry="10" fill="#e1f5fe" stroke="#81d4fa" stroke-width="1.5"/><path d="M22,48 Q22,34 40,32 Q58,34 58,48" fill="#e1f5fe" stroke="#81d4fa" stroke-width="1.5"/></svg>`; }
+function svgLaptopOn()  { return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="42" width="60" height="22" rx="4" fill="#cfd8dc" stroke="#90a4ae" stroke-width="2"/><rect x="14" y="16" width="52" height="30" rx="3" fill="#455a64" stroke="#37474f"/><rect x="17" y="19" width="46" height="24" rx="2" fill="#29b6f6"/><rect x="9" y="46" width="62" height="5" rx="2" fill="#37474f"/></svg>`; }
+function svgSofaBox()   { return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="32" width="38" height="24" rx="5" fill="#80cbc4" stroke="#4db6ac"/><rect x="45" y="36" width="30" height="20" rx="4" fill="#cfd8dc" stroke="#90a4ae"/></svg>`; }
+function svgStoveBox()  { return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg"><rect x="42" y="30" width="32" height="30" rx="4" fill="#cfd8dc" stroke="#90a4ae"/><rect x="6" y="18" width="36" height="28" rx="4" fill="#eee" stroke="#bdbdbd"/><circle cx="18" cy="28" r="5" fill="#bdbdbd"/><circle cx="32" cy="28" r="5" fill="#bdbdbd"/></svg>`; }
+function svgChairBox()  { return `<svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="36" width="36" height="28" rx="4" fill="#cfd8dc" stroke="#90a4ae"/><rect x="8" y="20" width="36" height="16" rx="4" fill="#bcaaa4" stroke="#8d6e3a"/><rect x="6" y="10" width="40" height="12" rx="3" fill="#8d6e3a"/><rect x="8" y="36" width="8" height="18" rx="2" fill="#795548"/><rect x="28" y="36" width="8" height="18" rx="2" fill="#795548"/></svg>`; }
+
+/* ═══════════════════════════════════════
+   SCORE TRACKER
+═══════════════════════════════════════ */
+let correct = 0, wrong = 0;
+function addScore(isCorrect) {
+  if (isCorrect) correct++; else wrong++;
+  document.getElementById('sc-correct').textContent = correct;
+  document.getElementById('sc-wrong').textContent = wrong;
+  document.getElementById('total-score').textContent = `${correct} / ${correct + wrong}`;
+}
+function showToast(msg, type = '') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  setTimeout(() => t.className = 'toast', 2200);
+}
+function confetti() {
+  const colors = ['#e91e8c','#00bcd4','#ffd600','#4caf50','#ff6d00','#9c27b0'];
+  for (let i = 0; i < 40; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    el.style.cssText = `left:${Math.random()*100}vw;top:-10px;background:${colors[Math.floor(Math.random()*colors.length)]};animation-delay:${Math.random()*.6}s;animation-duration:${.8+Math.random()*.8}s;transform:rotate(${Math.random()*360}deg)`;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 1600);
+  }
+}
+
+/* ═══════════════════════════════════════
+   BUILD EXERCISE 1
+═══════════════════════════════════════ */
+let dragWord = null;
+let ex1Answers = {}; // index -> word placed
+
+function buildEx1() {
+  const grid = document.getElementById('prep-grid');
+  ex1Data.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'prep-card';
+    div.innerHTML = `${item.svg}<div class="drop-zone" id="dz-${i}" data-index="${i}">drop here</div>`;
+    grid.appendChild(div);
+  });
+
+  // drag from word bank
+  document.querySelectorAll('#wb1 .word-chip[draggable]').forEach(chip => {
+    chip.addEventListener('dragstart', e => { dragWord = chip.dataset.word; });
+    chip.addEventListener('dragend', () => { dragWord = null; });
+  });
+
+  // drop zones
+  document.querySelectorAll('.drop-zone').forEach(dz => {
+    dz.addEventListener('dragover', e => { e.preventDefault(); dz.closest('.prep-card').classList.add('drag-over'); });
+    dz.addEventListener('dragleave', () => { dz.closest('.prep-card').classList.remove('drag-over'); });
+    dz.addEventListener('drop', e => {
+      e.preventDefault();
+      dz.closest('.prep-card').classList.remove('drag-over');
+      if (!dragWord) return;
+      const idx = parseInt(dz.dataset.index);
+      ex1Answers[idx] = dragWord;
+      dz.textContent = dragWord;
+      dz.classList.add('filled');
+    });
+    // touch / click fallback
+    dz.addEventListener('click', () => {
+      const word = prompt('Type the preposition:');
+      if (word) {
+        const idx = parseInt(dz.dataset.index);
+        ex1Answers[idx] = word.trim().toLowerCase();
+        dz.textContent = word;
+        dz.classList.add('filled');
+      }
+    });
+  });
+}
+
+function checkEx1() {
+  let ok = 0;
+  ex1Data.forEach((item, i) => {
+    const dz = document.getElementById(`dz-${i}`);
+    const card = dz.closest('.prep-card');
+    const ans = (ex1Answers[i] || '').toLowerCase().trim();
+    if (ans === item.answer) {
+      dz.classList.add('correct-zone'); card.classList.add('correct-card');
+      ok++; addScore(true);
+    } else {
+      dz.classList.add('wrong-zone'); card.classList.add('wrong-card');
+      dz.textContent = '✗ → ' + item.answer;
+      addScore(false);
+    }
+  });
+  if (ok === ex1Data.length) { showToast('🎉 Perfect! All correct!', 'success'); confetti(); }
+  else showToast(`${ok} / ${ex1Data.length} correct`, ok > 4 ? 'success' : 'error');
+}
+
+/* ═══════════════════════════════════════
+   BUILD EXERCISE 2
+═══════════════════════════════════════ */
+let selectedObjWord = null;
+let ex2Done = 0;
+
+function buildEx2() {
+  const grid = document.getElementById('obj-grid');
+  ex2Data.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'obj-card';
+    div.id = `obj-${i}`;
+    div.innerHTML = `${item.svg}<div class="obj-label" id="obj-lbl-${i}">?</div>`;
+    div.addEventListener('click', () => handleObjClick(i));
+    grid.appendChild(div);
+  });
+
+  document.querySelectorAll('#wb2 .obj-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#wb2 .obj-chip').forEach(c => c.style.outline = 'none');
+      chip.style.outline = '3px solid #e91e8c';
+      selectedObjWord = chip.dataset.word;
+    });
+  });
+}
+
+function handleObjClick(i) {
+  if (!selectedObjWord) { showToast('First click a word from the list!', 'error'); return; }
+  const card = document.getElementById(`obj-${i}`);
+  const lbl  = document.getElementById(`obj-lbl-${i}`);
+  if (card.classList.contains('correct-card')) return;
+
+  if (selectedObjWord === ex2Data[i].answer) {
+    lbl.textContent = selectedObjWord;
+    card.classList.add('correct-card');
+    // mark chip as used
+    document.querySelectorAll('#wb2 .obj-chip').forEach(c => {
+      if (c.dataset.word === selectedObjWord) { c.classList.add('used'); c.style.outline='none'; }
+    });
+    addScore(true);
+    ex2Done++;
+    if (ex2Done === ex2Data.length) { showToast('🎉 All objects named!', 'success'); confetti(); }
+  } else {
+    card.classList.add('wrong-card');
+    addScore(false);
+    setTimeout(() => card.classList.remove('wrong-card'), 500);
+    showToast('❌ Try again!', 'error');
+  }
+  selectedObjWord = null;
+  document.querySelectorAll('#wb2 .obj-chip').forEach(c => c.style.outline = 'none');
+}
+
+/* ═══════════════════════════════════════
+   BUILD EXERCISE 3
+═══════════════════════════════════════ */
+let ex3Chosen = {};
+
+function buildEx3() {
+  const grid = document.getElementById('q3-grid');
+  ex3Data.forEach((item, qi) => {
+    const div = document.createElement('div');
+    div.className = 'q3-item';
+    let opts = '';
+    item.options.forEach((opt, oi) => {
+      opts += `<div class="q3-option" id="q3-${qi}-${oi}" onclick="chooseQ3(${qi},${oi})"><div class="q3-radio"></div>${opt}</div>`;
+    });
+    div.innerHTML = item.svg + opts;
+    grid.appendChild(div);
+  });
+}
+
+function chooseQ3(qi, oi) {
+  // clear siblings
+  ex3Data[qi].options.forEach((_, o) => {
+    const el = document.getElementById(`q3-${qi}-${o}`);
+    el.className = 'q3-option';
+  });
+  const chosen = document.getElementById(`q3-${qi}-${oi}`);
+  chosen.classList.add('chosen');
+  ex3Chosen[qi] = oi;
+}
+
+function checkEx3() {
+  let ok = 0;
+  ex3Data.forEach((item, qi) => {
+    const chosen = ex3Chosen[qi];
+    item.options.forEach((_, oi) => {
+      const el = document.getElementById(`q3-${qi}-${oi}`);
+      el.className = 'q3-option';
+      if (oi === item.correct) el.classList.add('correct');
+      else if (oi === chosen && chosen !== item.correct) el.classList.add('wrong');
+    });
+    if (chosen === item.correct) { ok++; addScore(true); } else addScore(false);
+  });
+  if (ok === ex3Data.length) { showToast('🎉 All correct!', 'success'); confetti(); }
+  else showToast(`${ok} / ${ex3Data.length} correct`, ok > ex3Data.length/2 ? 'success':'error');
+}
+
+/* ═══════════════════════════════════════
+   BUILD EXERCISE 4
+═══════════════════════════════════════ */
+function buildEx4() {
+  const container = document.getElementById('ex4-container');
+  const items = [
+    { svg: svgPhoneIn(),   text: 'The ', noun: 'phone', mid: ' is ', prep: 'in', end: ' the box.' },
+    { svg: svgLampOn(),    text: 'The ', noun: 'lamp',  mid: ' is ', prep: 'on', end: ' the box.' },
+    { svg: svgTVPhone2(),  text: 'The ', noun: 'TV',    mid: ' and the phone are ', prep: 'next to', end: ' the box.' },
+    { svg: svgShowerIn(),  text: 'The ', noun: 'shower',mid: ' is ', prep: 'in front of', end: ' the box.' },
+    { svg: svgLaptopOn(),  text: 'The ', noun: 'laptop',mid: ' is ', prep: 'above', end: ' the box.' },
+    { svg: svgSofaBox(),   text: 'The ', noun: 'sofa',  mid: ' is ', prep: 'next to', end: ' the box.' },
+    { svg: svgStoveBox(),  text: 'The ', noun: 'stove', mid: ' is ', prep: 'next to', end: ' the box.' },
+    { svg: svgChairBox(),  text: 'The ', noun: 'chair', mid: ' is ', prep: 'on', end: ' the box.' },
+  ];
+
+  items.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'e4-item';
+    div.innerHTML = `
+      ${item.svg}
+      <div class="e4-sentence">
+        The <input class="blank-input" id="e4n-${i}" placeholder="…" style="width:80px"> ${item.mid.trim()}
+        <input class="blank-input" id="e4p-${i}" placeholder="…" style="width:${item.prep.length>5?110:80}px"> the box.
+      </div>`;
+    div.querySelector(`#e4n-${i}`).dataset.answer = item.noun;
+    div.querySelector(`#e4p-${i}`).dataset.answer = item.prep;
+    container.appendChild(div);
+  });
+}
+
+function checkEx4() {
+  let ok = 0, total = 0;
+  document.querySelectorAll('#ex4-container .blank-input').forEach(inp => {
+    const ans = inp.value.trim().toLowerCase();
+    const correct = inp.dataset.answer.toLowerCase();
+    inp.classList.remove('correct','wrong');
+    if (ans === correct) { inp.classList.add('correct'); ok++; addScore(true); }
+    else { inp.classList.add('wrong'); inp.value = ''; inp.placeholder = correct; addScore(false); }
+    total++;
+  });
+  if (ok === total) { showToast('🎉 Excellent!', 'success'); confetti(); }
+  else showToast(`${ok} / ${total} correct`, 'error');
+}
+
+/* ═══════════════════════════════════════
+   BUILD EXERCISE 5
+═══════════════════════════════════════ */
+function buildEx5() {
+  const tbody = document.getElementById('tf-body');
+  ex5Data.forEach((item, i) => {
+    const tr = document.createElement('tr');
+    tr.className = 'tf-row';
+    tr.innerHTML = `
+      <td>${item.text}</td>
+      <td><button class="tf-btn tf-btn-t" id="tf-t-${i}" onclick="selectTF(${i},'true')">TRUE</button></td>
+      <td><button class="tf-btn tf-btn-f" id="tf-f-${i}" onclick="selectTF(${i},'false')">FALSE</button></td>`;
+    tbody.appendChild(tr);
+  });
+}
+const tfAnswers = {};
+function selectTF(i, val) {
+  tfAnswers[i] = val;
+  document.getElementById(`tf-t-${i}`).className = 'tf-btn tf-btn-t' + (val==='true'?' selected-t':'');
+  document.getElementById(`tf-f-${i}`).className = 'tf-btn tf-btn-f' + (val==='false'?' selected-f':'');
+}
+function checkEx5() {
+  let ok = 0;
+  ex5Data.forEach((item, i) => {
+    const chosen = tfAnswers[i];
+    const isRight = chosen === String(item.answer);
+    if (isRight) { ok++; addScore(true); } else addScore(false);
+    const tBtn = document.getElementById(`tf-t-${i}`);
+    const fBtn = document.getElementById(`tf-f-${i}`);
+    if (item.answer === true) {
+      tBtn.className = 'tf-btn result-correct';
+      if (chosen === 'false') fBtn.className = 'tf-btn result-wrong';
+    } else {
+      fBtn.className = 'tf-btn result-correct';
+      if (chosen === 'true') tBtn.className = 'tf-btn result-wrong';
+    }
+  });
+  if (ok === ex5Data.length) { showToast('🎉 All correct!', 'success'); confetti(); }
+  else showToast(`${ok} / ${ex5Data.length} correct`, ok > ex5Data.length/2?'success':'error');
+}
+
+/* ═══════════════════════════════════════
+   BUILD EXERCISE 6
+═══════════════════════════════════════ */
+function buildEx6() {
+  const list = document.getElementById('q6-list');
+  ex6Data.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.innerHTML = `<label>${item.q}</label>
+      <input class="q6-input" id="q6-${i}" placeholder="Write your answer…">`;
+    list.appendChild(div);
+  });
+}
+
+function checkEx6() {
+  let ok = 0;
+  ex6Data.forEach((item, i) => {
+    const inp = document.getElementById(`q6-${i}`);
+    const val = inp.value.trim().toLowerCase();
+    const isOk = item.accept.some(a => val.includes(a) || a.includes(val.replace(/\./g,'')));
+    inp.className = 'q6-input ' + (isOk ? 'correct' : 'hint');
+    if (isOk) { ok++; addScore(true); } else { addScore(false); inp.placeholder = item.accept[0]; }
+  });
+  if (ok === ex6Data.length) { showToast('🎉 Great job!', 'success'); confetti(); }
+  else showToast(`${ok} / ${ex6Data.length} – Check the orange hints!`, 'error');
+}
+
+/* ═══════════════════════════════════════
+   INIT
+═══════════════════════════════════════ */
+buildEx1();
+buildEx2();
+buildEx3();
+buildEx4();
+buildEx5();
+buildEx6();
+</script>
+</body>
+</html>
